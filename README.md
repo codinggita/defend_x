@@ -31,3 +31,8 @@ To solve the problem, we can create a platform where the website allows users to
 4. Services
 5. Contact Us
 6. About Us 
+
+
+## POSTMAN DOCUMENTATION
+-[URL](https://documenter.getpostman.com/view/28159129/2s9YsT78fH)
+
