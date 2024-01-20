@@ -1,61 +1,65 @@
-// const express = require("express");
-import express from "express";
+import express from 'express';
+
 const app = express();
-const port = 9000;
+const port = 6000;
 
 // Middleware to parse JSON body in requests
 app.use(express.json());
 
 // In-memory "database"
-let courses = {
-  cse: [
+let training = {
+  bouncer: [
     {
-      course: "frontend",
+      course: "Event Management",
       courseId: 1,
-      cohort: 10,
-      college: "LPU",
-      semester: 2,
-      averageRating: 0,
-      studentsVoted: 0,
+      Time: "6 months",
+      averageRating: 5,
+      Description: "Learn the skills required for effective event management and crowd control.",
     },
     {
-      course: "backend",
+      course: "Property Guarding",
       courseId: 2,
-      cohort: 11,
-      college: "GTU",
-      semester: 3,
-      averageRating: 9.25,
-      studentsVoted: 12,
-    },
-    {
-      course: "design",
-      courseId: 3,
-      cohort: 10,
-      college: "LPU",
-      semester: 2,
-      averageRating: 0,
-      studentsVoted: 0,
-    },
-    {
-      course: "dsa",
-      courseId: 4,
-      cohort: 10,
-      college: "VIT",
-      semester: 2,
+      Time: "8 months",
       averageRating: 4,
-      studentsVoted: 3,
+      Description: "Understand the techniques of property guarding and security.",
     },
-  ],
+    {
+      course: "Personal Protection",
+      courseId: 3,
+      Time: "1.5 Year",
+      averageRating: 5,
+      Description: "Develop the skills needed for personal protection and VIP security.",
+    },
+    {
+      course: "Security Driver",
+      courseId: 4,
+      Time: "1 Year",
+      averageRating: 4,
+      Description: "Learn the essentials of security driving for safe transportation.",
+    },
+    {
+      course: "Gunman",
+      courseId: 5,
+      Time: "2 Year",
+      averageRating: 5,
+      Description: "Specialized training in the use of firearms for security personnel.",
+    },
+  ]
 };
 
+// GET - Welcome to the Security Service Course
+app.get('/', (req, res) => {
+  res.send("Welcome to the Security training course home page!");
+});
+
 // GET - List all courses
-app.get("/courses", (req, res) => {
-  res.json(courses.cse);
+app.get('/training', (req, res) => {
+  res.json(training.bouncer);
 });
 
 // GET - Details of a specific course by name
-app.get("/courses/:courseName", (req, res) => {
-  const course = courses.cse.find((c) => c.course === req.params.courseName);
+app.get('/training/:courseName', (req, res) => {
+  const course = training.bouncer.find((c) => c.course === req.params.courseName);
   if (!course) {
     res.status(404).send("Course not found");
   } else {
@@ -64,8 +68,8 @@ app.get("/courses/:courseName", (req, res) => {
 });
 
 // GET - Average rating of a specific course
-app.get("/courses/:courseName/rating", (req, res) => {
-  const course = courses.cse.find((c) => c.course === req.params.courseName);
+app.get("/training/:courseName/rating", (req, res) => {
+  const course = training.bouncer.find((c) => c.course === req.params.courseName);
   if (!course) {
     res.status(404).send("Course not found");
   } else {
@@ -74,75 +78,65 @@ app.get("/courses/:courseName/rating", (req, res) => {
 });
 
 // POST - Create a new course
-app.post("/courses", (req, res) => {
-  courses.cse.push(req.body);
+app.post("/training", (req, res) => {
+  const newCourse = req.body;
+  newCourse.courseId = training.bouncer.length + 1;
+  training.bouncer.push(newCourse);
   res.send("Course added");
 });
 
 // POST - Add a rating to a course
-app.post("/courses/:courseName/rating", (req, res) => {
-  const course = courses.cse.find((c) => c.course === req.params.courseName);
+app.post("/training/:courseName/rating", (req, res) => {
+  const course = training.bouncer.find((c) => c.course === req.params.courseName);
   if (!course) {
     res.status(404).send("Course not found");
   } else {
     const rating = req.body.rating;
-    course.averageRating =
-      (course.averageRating * course.studentsVoted + rating) /
-      (course.studentsVoted + 1);
-    course.studentsVoted++;
+    course.Rating =
+      (course.Rating * course.Time + rating) /
+      (course.Time + 1);
+    course.Time++;
     res.send("Rating updated");
   }
 });
 
 // PUT - Modify information of a course
-app.put("/courses/:courseName", (req, res) => {
-  const index = courses.cse.findIndex(
+app.put("/training/:courseName", (req, res) => {
+  const index = training.bouncer.findIndex(
     (c) => c.course === req.params.courseName
   );
   if (index === -1) {
     res.status(404).send("Course not found");
   } else {
-    courses.cse[index] = { ...courses.cse[index], ...req.body };
+    training.bouncer[index] = { ...training.bouncer[index], ...req.body };
     res.send("Course updated");
   }
 });
 
-// PATCH - Update partial information of a course
-app.patch("/courses/:courseName", (req, res) => {
-  const index = courses.cse.findIndex(
-    (c) => c.course === req.params.courseName
-  );
-  if (index === -1) {
-    res.status(404).send("Course not found");
-  } else {
-    const courseToUpdate = courses.cse[index];
-    // Update specific fields if they exist in the request body
-    if (req.body.cohort) courseToUpdate.cohort = req.body.cohort;
-    if (req.body.college) courseToUpdate.college = req.body.college;
-    if (req.body.semester) courseToUpdate.semester = req.body.semester;
-
-    res.send("Course partially updated");
-  }
-});
-
 // DELETE - Remove a course by name
-app.delete("/courses/:courseName", (req, res) => {
-  const index = courses.cse.findIndex(
+app.delete("/training/:courseName", (req, res) => {
+  const index = training.bouncer.findIndex(
     (c) => c.course === req.params.courseName
   );
   if (index === -1) {
     res.status(404).send("Course not found");
   } else {
-    courses.cse.splice(index, 1);
+    training.bouncer.splice(index, 1);
     res.send("Course deleted");
   }
 });
 
-app.get("/*", (req, res) => {
-  res.send("You are on worng route. Here's the list of possible routes");
+// DELETE - Remove a course by index
+app.delete("/training/:courseName/:index", (req, res) => {
+  const index = parseInt(req.params.index);
+  if (isNaN(index) || index < 0 || index >= training.bouncer.length) {
+    res.status(400).send("Invalid index");
+  } else {
+    training.bouncer.splice(index, 1);
+    res.send("Course deleted at index " + index);
+  }
 });
 
-// Start the server
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server is running at ${port}`);
 });
