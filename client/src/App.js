@@ -1,11 +1,16 @@
-import './App.css';
-import Navbar from './Navbar/Navbar';
+import './App.css'
+import Rou from './Component/route/Rou'
+import Slider from './Component/Slider/Slider'
+
+
+
 function App() {
   return (
-    <div className="App">
-     <Navbar />
-    </div>
-  );
+    <>
+  <Rou />
+  <Slider />
+  </>
+  )
 }
 
 export default App;
