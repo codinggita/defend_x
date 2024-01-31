@@ -1,5 +1,11 @@
 # DEFEND X
 
+## POSTMAN DOCUMENTATION
+-[URL](https://documenter.getpostman.com/view/28159129/2s9YsT78fH)
+
+## NETLIFY DEPLOYMENT
+=[URL](https://defend-x-sudheer-bhati.netlify.app/)
+
 ## Target Problem To Be Solved
 DefendX addresses the critical issue of personal security in an increasingly complex and dynamic world. As our lives become more interconnected and mobile, individuals are faced with diverse security challenges, ranging from physical threats to digital vulnerabilities. DefendX aims to solve the problem of personal security by providing a comprehensive suite of solutions tailored to safeguarding individuals and their loved ones.
 
@@ -33,6 +39,5 @@ To solve the problem, we can create a platform where the website allows users to
 6. About Us 
 
 
-## POSTMAN DOCUMENTATION
--[URL](https://documenter.getpostman.com/view/28159129/2s9YsT78fH)
+
 
