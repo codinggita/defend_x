@@ -4,7 +4,7 @@ import Companies from '../../Companies/Companies'
 import Banner from '../../Banner/Banner'
 import Hero from '../../Hero/Hero'
 import ImageSlider from '../../ImageSlider/ImageSlider'
-
+import Service from '../../Service/Service'
 
 const Home = () => {
   return (
@@ -15,6 +15,7 @@ const Home = () => {
     <Banner />
     <br></br>
     <Hero />
+    <Service />
     <ImageSlider />
     </>
   )
