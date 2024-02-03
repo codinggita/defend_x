@@ -5,6 +5,8 @@ import Banner from '../../Banner/Banner'
 import Hero from '../../Hero/Hero'
 import ImageSlider from '../../ImageSlider/ImageSlider'
 import Service from '../../Service/Service'
+import Testimonial from '../../Testimonial/Testimonial'
+
 
 const Home = () => {
   return (
@@ -16,6 +18,9 @@ const Home = () => {
     <br></br>
     <Hero />
     <Service />
+    <br></br>
+    <Testimonial />
+    <br></br>
     <ImageSlider />
     </>
   )
