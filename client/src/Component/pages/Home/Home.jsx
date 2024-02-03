@@ -1,14 +1,17 @@
 import React from 'react'
+import Slider from '../../Slider/Slider'
+import Companies from '../../Companies/Companies'
+import Banner from '../../Banner/Banner'
+
 
 const Home = () => {
   return (
-    <div className="container">
-    
-      <h1 className="text-center" style={{paddingTop: "30%"}}>
-        About
-      </h1>
-      
-    </div>
+    <>
+    <Slider />
+    <Companies />
+    <br></br>
+    <Banner />
+    </>
   )
 }
 
