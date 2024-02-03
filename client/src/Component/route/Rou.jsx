@@ -15,12 +15,12 @@ const Rou = () => {
       <BrowserRouter>
       <Navbar/>
         <Routes>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/protection' component={Protection} />
-          <Route exact path='/training' component={Training} />
-          <Route exact path='/services' component={Services} />
-          <Route exact path='/contact' component={Contact} />
-          <Route exact path='/login' component={Login} />
+        <Route path='/' element={<Home/>} />
+          <Route exact path='/protection' element={<Protection/>} />
+          <Route exact path='/training' element={<Training/>} />
+          <Route exact path='/services' element={<Services/>} />
+          <Route exact path='/contact' element={<Contact/>} />
+          <Route exact path='/login' element={<Login/>} />
         </Routes>
 
       </BrowserRouter>
