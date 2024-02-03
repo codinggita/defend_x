@@ -1,0 +1,82 @@
+.footer {
+  font-family: 'Bebas Neue','sans-sarif';
+  background-color: rgb(6,9,23);
+  color: white;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  border-top-left-radius: 100px;
+}
+
+.footer .company-info {
+  padding-left: 30px;
+}
+
+.company-info h2,
+.quick-links h3,
+.our-services h3,
+.contact-us h3 {
+  color: rgb(23,62,145);
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  font-size: 3vw; 
+}
+
+.social-icons svg {
+  border: 1px solid rgb(23,62,145);
+  padding: 1vw; 
+  border-radius: 50%;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.social-icons svg:hover {
+  background-color: white;
+  border-color: rgb(23,62,145);
+  color: red;
+}
+.contact-us .icon{
+  border: 1px solid rgb(23,62,145);
+  padding: 1vw;
+  font-size: 3vw;
+  border-radius: 50%;
+  transition: border-color 0.3s ease-in-out;
+}
+.contact-us .icon:hover {
+  background-color: white;
+  border-color: rgb(23,62,145);
+  color: red;
+}
+
+.quick-links ul,
+.our-services p {
+  list-style-type: none;
+  padding: 1px;
+  cursor: pointer;
+}
+.our-services h3{
+  gap: 2px;
+}
+
+.contact-us p {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    grid-template-columns: 1fr;
+    border-top-left-radius: 0; 
+  
+  }
+
+  .social-icons {
+    font-size: 8vw; /* Adjust font size for smaller screens */
+  }
+
+  .social-icons svg {
+    padding: 10vw; /* Adjust padding for smaller screens */
+  }
+}
