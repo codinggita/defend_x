@@ -8,7 +8,7 @@ import Services from '../pages/Service/Services';
 import Training from '../pages/Training/Training';
 import Navbar from '../Navbar/Navbar';
 import Login from "../pages/login/Login";
-
+import Footer from '../Footer/Footer'
 const Rou = () => {
   return (
     <>
@@ -22,7 +22,7 @@ const Rou = () => {
           <Route exact path='/contact' element={<Contact/>} />
           <Route exact path='/login' element={<Login/>} />
         </Routes>
-
+        <Footer />
       </BrowserRouter>
     </>
   )
