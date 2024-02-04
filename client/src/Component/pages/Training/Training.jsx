@@ -1,14 +1,14 @@
 import React from 'react'
+import Features from './Features/features'
+
 
 const Training = () => {
   return (
-    <div className="container">
+    <>
     
-      <h1 className="text-center" style={{paddingTop: "30%"}}>
-        About
-      </h1>
-      
-    </div>
+    <Features/>
+  
+    </>
   )
 }
 
