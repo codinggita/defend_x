@@ -19,10 +19,6 @@ DefendX addresses the critical issue of personal security with a commitment to a
 ## FIGMA Design
 👉👉 [Figma Design](https://www.figma.com/file/yX1HPqnkciU00CDslmjzmT/Defend-X-Website-UI?type=design&node-id=0%3A1&mode=design&t=zykpDHX7PjfdVuGF-1)
 
-## Video Link
-
-
-
 ## Similar Existing Solutions
 - 👉 [ULTIMATE SECURITY SERVICE](https://ultimatesecurityservices.in/)
 - 👉 [OFF DUTY OFFICERS](https://offdutyofficers.com/vip-and-personal-security-services/)
